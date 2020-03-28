@@ -58,7 +58,7 @@ module.exports = function (ctx) {
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
       // rtl: false, // https://quasar.dev/options/rtl-support
-      showProgress: false,
+      showProgress: true,
       gzip: true,
       //analyze: true,
 
@@ -82,7 +82,7 @@ module.exports = function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
-      https: false,
+      https: true,
       port: 8080,
       open: true // opens browser window automatically
     },

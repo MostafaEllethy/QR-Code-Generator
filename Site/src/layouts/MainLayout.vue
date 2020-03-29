@@ -29,7 +29,7 @@
         <q-card-section>
           <div class="row">
             <div class="col-9">
-              <router-view />
+              <router-view/>
 
             </div>
 
@@ -52,18 +52,33 @@
 
 <script>
   import QRCode from 'qrcode';
+
+  let module = null;
+
   export default {
     name: 'MainLayout',
-
     data() {
       return {
-        qr: "https://qr-code-generator.info/",
+        qr: "qwe",
+        test: 'qwe'
       }
     },
     mounted() {
-      var canvas = document.getElementById('Canvas');
-      QRCode.toCanvas(canvas, this.qr, { width: 225, margin: 0 });
-    }
+      module = this;
+      //this.$on('updateQR', (val) => {
+      //  console.log(val);
+      //  module.qr = val
+      //})
+    },
+    //watch: {
+    //  qr(val) {
+    //    console.log(val)
+    //    if (val !== '') {
+    //      var canvas = document.getElementById('Canvas');
+    //      QRCode.toCanvas(canvas, this.qr, { width: 225, margin: 0 });
+    //    }
+    //  }
+    //}
   }
 </script>
 

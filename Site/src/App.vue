@@ -11,16 +11,6 @@ export default {
 </script>
 
 <style lang="scss">
-/*@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;800;900&display=swap');*/
-
-  /*html, body {
-    font-family: 'Raleway', sans-serif;
-  }
-
-  #app {
-    font-family: 'Raleway', sans-serif;
-  }*/
-
   #q-app {
     min-height: 100vh;
     background: #1A2980; /* fallback for old browsers */

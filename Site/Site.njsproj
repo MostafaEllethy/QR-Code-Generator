@@ -132,8 +132,7 @@
     <Content Include="src\index.template.html" />
     <Content Include="src\layouts\MainLayout.vue" />
     <Content Include="src\pages\Error404.vue" />
-    <Content Include="src\pages\Index.vue" />
-    <Content Include="src\pages\Index2.vue" />
+    <Content Include="src\pages\Text.vue" />
     <Content Include="src\router\index.js" />
     <Content Include="src\router\routes.js" />
     <Content Include="src\statics\app-logo-128x128.png" />

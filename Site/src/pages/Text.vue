@@ -1,21 +1,31 @@
 <template>
-<div>
-  Text
-</div>
+  <div>
+    <q-input outlined v-model="string" v-on:keyup="typing"
+             placeholder="Enter your website, text or social media link."
+             hint="Your QR Code will be generated automatically."
+             :input-style="{fontSize: '1.5rem'}"
+             type="textarea"
+             rows="5"
+             debounce="500" />
+  </div>
 </template>
 
 <script>
   export default {
-    mounted() {
-      let module = this;
-      this.$nextTick(() => {
-        console.log(module.qr)
-        console.log(module.$parent.qr)
-        console.log(module.test)
-        console.log(module.$parent.test)
-        //module.$parent.$emit('updateQR', 'http://qr-code-generator.info/')
-      })
-
+    data() {
+      return {
+        string: null
+      }
+    }
+    , methods: {
+      typing() {
+        this.$emit('typing')
+      }
+    }
+    , watch: {
+      string(val) {
+        this.$emit('updateQR', val)
+      }
     }
   }
 </script>

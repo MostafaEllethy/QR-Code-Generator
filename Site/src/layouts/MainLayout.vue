@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="overflow-x: hidden;">
     <h1 id="AppTitle">QR <span class="text-weight-bolder">&lt;CODE/&gt;</span> Generator</h1>
     <q-tabs class="text-white">
       <q-route-tab v-for="(menuItem, index) in menuList" :key="index" :to="menuItem.path" :icon="menuItem.icon" :label="menuItem.label" exact />
@@ -90,7 +90,7 @@
         </q-card-section>
       </q-card>
     </q-dialog>
-    <div class="text-center q-mt-md">
+    <div class="text-center q-py-md">
       <a href="javascript:void();" class="text-grey-4" style="text-decoration: none;font-size: 1.25rem;font-weight: 500;" @click="showContactUs"><q-icon name="chat" /> Contact Us</a>
     </div>
   </div>
@@ -127,8 +127,12 @@
         , downloading: false
       }
     }
-    , beforeMount() {
+    , created() {
       let module = this;
+      module.$axios.get(window.location.origin + '/statics/config.json').then(function (response) {
+        window.apiUrl = response.data.apiRoot;
+        module.$emit("configLoaded")
+      });
       menuLinks.forEach((item) => {
         let route = module.$router.resolve({
           name: item.name
@@ -138,7 +142,13 @@
     }
     , mounted() {
       module = this;
-      module.updateQR('http://qr-code-generator.info/');
+      module.updateQR('https://qr-code-generator.info/');
+      //module.$on("configLoaded", () => {
+      //  QRCode.toString(module.qr, { type: 'svg' }, function (err, string) {
+      //    if (err) throw err
+      //    module.$axios.get(window.apiUrl + '/eps?data=' + encodeURIComponent(string)).then((response) => { console.log(response) })
+      //  });
+      //})
     },
     methods: {
       typing() {
@@ -247,8 +257,8 @@
     border-left: 1px solid rgba(0,0,0,0.12);
   }
 
-  #Canvas {
+  #ViewCanvas {
     display: block;
-    margin: 1rem auto;
+    margin: 0 auto;
   }
 </style>

@@ -1,0 +1,3 @@
+C:\Users\Mostafa Ellethy\source\repos\QR-Code-Generator\Site\obj\Debug\Site.njsprojAssemblyReference.cache
+C:\Users\Mostafa Ellethy\source\repos\QR-Code-Generator\Site\obj\Debug\Site.njsproj.CoreCompileInputs.cache
+C:\Users\Mostafa Ellethy\source\repos\QR-Code-Generator\Site\bin\Microsoft.NodejsTools.WebRole.dll

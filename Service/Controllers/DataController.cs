@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Service.Controllers
 {
-    public class TestController : ApiController
+    public class DataController : ApiController
     {
         // GET: api/Test
         public IEnumerable<string> Get()
@@ -22,8 +22,9 @@ namespace Service.Controllers
         }
 
         // POST: api/Test
-        public void Post([FromBody]string value)
+        public string Post([FromBody]string value, [FromBody]string value2)
         {
+         return "True";
         }
 
         // PUT: api/Test/5

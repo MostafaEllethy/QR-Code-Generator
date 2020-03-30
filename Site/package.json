@@ -14,6 +14,7 @@
   "dependencies": {
     "@quasar/extras": "^1.6.0",
     "axios": "^0.19.2",
+    "jspdf": "^1.5.3",
     "qrcode": "^1.4.4",
     "quasar": "^1.9.11"
   },

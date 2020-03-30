@@ -1,11 +1,11 @@
 <template>
   <div>
-    <q-input outlined v-model="string" v-on:keyup="typing"
+    <q-input outlined v-model="string" v-on:keydown="typing"
              placeholder="Enter your website, text or social media link."
              hint="Your QR Code will be generated automatically."
              :input-style="{fontSize: '1.5rem'}"
              type="textarea"
-             rows="5"
+             rows="7"
              debounce="500" />
   </div>
 </template>

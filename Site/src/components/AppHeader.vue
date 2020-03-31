@@ -10,7 +10,7 @@
         <h1 class="q-ml-sm q-my-none" style="display: inline-block;vertical-align: middle;font-size:2.75rem">Generator</h1>
       </template>
     </h1>
-    <div id="TabsDiv" style="background: rgba(0,0,0,0.125);">
+    <div id="TabsDiv" style="background: rgba(0,0,0,0.125);" v-bind:class="{'mobile': $q.platform.is.mobile && screenSize <= 2}">
       <q-tabs class="text-white" dense narrow-indicator>
         <q-route-tab v-for="(menuItem, index) in menuList" :key="index" :to="menuItem.path" :icon="menuItem.icon" :label="menuItem.label" exact />
       </q-tabs>
@@ -59,7 +59,7 @@
     color: white;
     font-size: 3.75rem;
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.375;
   }
 
     #AppTitle h1 {
@@ -68,8 +68,11 @@
 
   #TabsDiv {
     position: relative;
-    padding-right: 15px;
   }
+
+    #TabsDiv.mobile {
+      padding-right: 15px;
+    }
 
   @media only screen and (max-width: 1024px) {
     #AppTitle {

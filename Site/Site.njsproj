@@ -46,6 +46,7 @@
     <Folder Include="src\boot\" />
     <Folder Include="src\css\" />
     <Folder Include="src\layouts\" />
+    <Folder Include="src\components\" />
     <Folder Include="src\pages\" />
     <Folder Include="src\router\" />
     <Folder Include="src\statics\" />
@@ -127,6 +128,9 @@
     <Content Include="src\assets\sad.svg" />
     <Content Include="src\boot\.gitkeep" />
     <Content Include="src\boot\axios.js" />
+    <Content Include="src\components\AppHeader.vue">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\css\app.scss" />
     <Content Include="src\css\quasar.variables.scss" />
     <Content Include="src\index.template.html" />

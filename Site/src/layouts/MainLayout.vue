@@ -1,48 +1,55 @@
 <template>
   <div style="overflow-x: hidden;">
-    <h1 id="AppTitle">QR <span class="text-weight-bolder">&lt;CODE/&gt;</span> Generator</h1>
-    <q-tabs class="text-white">
-      <q-route-tab v-for="(menuItem, index) in menuList" :key="index" :to="menuItem.path" :icon="menuItem.icon" :label="menuItem.label" exact />
-      <q-btn-dropdown auto-close stretch flat>
-        <template v-slot:label>
-          <div>
-            <div class="row justify-around items-center no-wrap">
-              <q-icon name="more" />
-            </div>
-            <div class="row items-center no-wrap">
-              More...
-            </div>
-          </div>
-        </template>
 
-        <q-list>
-          <q-item clickable @click="tab = 'movies'">
-            <q-item-section>Movies</q-item-section>
-          </q-item>
-
-          <q-item clickable @click="tab = 'photos'">
-            <q-item-section>Photos</q-item-section>
-          </q-item>
-        </q-list>
-      </q-btn-dropdown>
-    </q-tabs>
-    <div id="AppContent">
+    <h1 id="AppTitle" class="q-py-md-md">
+      <template v-if="screenSize > 2">
+        QR
+        <span class="text-weight-bolder">&lt;CODE/&gt;</span> Generator
+      </template>
+      <template v-else>
+        <div>
+          <h1 class="text-center text-weight-bolder no-margin text-h5" style="display: inline-block;vertical-align:middle;line-height:1;">QR<br /><span>&lt;CODE/&gt;</span></h1>
+          <h1 class="q-ml-sm text-h3 q-my-none" style="display: inline-block;vertical-align: middle;border-bottom: 2px solid white;">Generator</h1>
+        </div>
+      </template>
+    </h1>
+    <div id="TabsDiv">
+      <q-tabs class="text-white" dense narrow-indicator>
+        <q-route-tab v-for="(menuItem, index) in menuList" :key="index" :to="menuItem.path" :icon="menuItem.icon" :label="menuItem.label" exact />
+      </q-tabs>
+      <div id="SwipeDiv" class="text-center hidden" style="position: absolute;right:0px;top:0px;width:56px;height:56px;background:rgba(0,0,0,0.75)">
+        <img src="~assets/swipe.png" style="margin-top: 13px;" width="30">
+      </div>
+    </div>
+    <div id="AppContent" v-bind:class="{'small': screenSize <= 2}">
       <q-card>
         <q-card-section>
           <div class="row q-col-gutter-md">
             <div class="col-9 q-pr-md">
-              <router-view @updateQR="updateQR" @typing="typing" />
+              {{screenSize}}
+              <router-view @updateQR="updateQR" @typing="typing" :screenSize="screenSize" />
             </div>
             <div id="CanvasArea" class="col-3">
               <div style="position: relative">
                 <canvas id="ViewCanvas"></canvas>
                 <canvas id="Canvas" style="display: none;"></canvas>
-                <q-slider v-model="quality" :min="200" :max="2000" :step="5" :disable="downloading" />
-                <div class="row no-wrap justify-between text-weight-bold q-mb-md" style="font-size:0.825rem;">
-                  <div class="col-auto">Low Quality</div>
-                  <div class="col-auto">{{quality}} × {{quality}} Pixel</div>
-                  <div class="col-auto">High Quality</div>
+                <div class="row">
+                  <div class="col-3 text-weight-bold self-center">
+                    Quality <q-icon name="double_arrow" />
+                  </div>
+                  <div class="col-9">
+                    <q-slider v-model="quality" :min="minQuality" :max="maxQuality" :step="5" :disable="downloading" />
+                  </div>
                 </div>
+                <div class="row text-weight-bold" style="font-size:0.825rem;">
+                  <div class="col-4"><q-input filled v-model.number="quality" dense :input-style="{textAlign: 'center'}" /></div>
+                  <div class="col-2 text-center self-center text-h6">×</div>
+                  <div class="col-4"><q-input filled v-model.number="quality" dense :input-style="{textAlign: 'center'}" /></div>
+                  <div class="col-2 text-center text-subtitle2 self-center">Pixel</div>
+                </div>
+                <q-separator spaced />
+                <div class="sharethis-inline-share-buttons"></div>
+                <q-separator spaced />
                 <q-btn-dropdown class="full-width" color="positive" label="Download" icon="get_app" ref="DownloadPopup" :disable="downloading" :loading="downloading">
                   <div class="row no-wrap q-pa-md">
                     <div class="col">
@@ -63,7 +70,7 @@
                         <div class="col-4">
                           <q-btn outline @click="download('pdf')" color="positive" class="full-width">.PDF</q-btn>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4" v-if="configLoaded">
                           <q-btn outline @click="download('eps')" color="positive" class="full-width">.EPS</q-btn>
                         </div>
                       </div>
@@ -86,7 +93,11 @@
     <q-dialog v-model="contactUs">
       <q-card style="width: 650px; max-width: 80vw;">
         <q-card-section>
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpxafb4Un8wTqbCRCENkGC09nXVff6q1P_ZJjoUSB4n062XQ/viewform?embedded=true" width="600" height="750" frameborder="0" marginheight="0" marginwidth="0" style="display:block;margin:auto;">Loading…</iframe>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpxafb4Un8wTqbCRCENkGC09nXVff6q1P_ZJjoUSB4n062XQ/viewform?embedded=true" width="600" height="750" frameborder="0" marginheight="0" marginwidth="0" style="    display: block;
+    margin: auto;
+">
+            Loading…
+          </iframe>
         </q-card-section>
       </q-card>
     </q-dialog>
@@ -99,6 +110,7 @@
 <script>
   import QRCode from 'qrcode'
   import jsPDF from 'jspdf'
+  import axios from 'axios'
 
   let module = null;
 
@@ -119,19 +131,24 @@
     name: 'MainLayout',
     data() {
       return {
-        qr: "",
-        menuList: [],
-        contactUs: false,
-        loading: true
-        , quality: 1100
+        qr: ""
+        , menuList: []
+        , contactUs: false
+        , loading: true
+        , minQuality: 100
+        , maxQuality: 2000
+        , defaultQuality: 512
+        , quality: null
         , downloading: false
+        , configLoaded: false
+        , carousel: 'style'
       }
     }
     , created() {
       let module = this;
       module.$axios.get(window.location.origin + '/statics/config.json').then(function (response) {
         window.apiUrl = response.data.apiRoot;
-        module.$emit("configLoaded")
+        module.configLoaded = true
       });
       menuLinks.forEach((item) => {
         let route = module.$router.resolve({
@@ -139,16 +156,12 @@
         }).route;
         module.menuList.push({ label: route.meta.header, path: route.path, icon: item.icon });
       })
+      module.quality = module.defaultQuality
     }
     , mounted() {
       module = this;
       module.updateQR('https://qr-code-generator.info/');
-      //module.$on("configLoaded", () => {
-      //  QRCode.toString(module.qr, { type: 'svg' }, function (err, string) {
-      //    if (err) throw err
-      //    module.$axios.get(window.apiUrl + '/eps?data=' + encodeURIComponent(string)).then((response) => { console.log(response) })
-      //  });
-      //})
+      module.fixTabs();
     },
     methods: {
       typing() {
@@ -168,12 +181,14 @@
         this.contactUs = true;
       }
       , downloadingAsync(type) {
+        let quality = parseInt(module.quality);
+        if (isNaN(quality) || module.minQuality > quality || quality > module.maxQuality) quality = module.defaultQuality;
         return new Promise(resolve => {
           setTimeout(() => {
             var a = document.createElement("a");
             let fileName = Date.now();
             let fileExt = '';
-            let options = { width: module.quality, margin: 1 };
+            let options = { width: quality, margin: 1 };
             switch (type) {
               case 'png':
                 options.type = 'image/png';
@@ -209,7 +224,6 @@
               case 'pdf':
                 options.type = 'image/jpeg';
                 options.width = 794;
-                console.log(options)
                 QRCode.toDataURL(module.qr, options, function (err, string) {
                   if (err) throw err
                   var pdf = new jsPDF();
@@ -217,8 +231,30 @@
                   pdf.save(fileName + '.pdf');
                 })
                 break;
+              case 'eps':
+                options.type = 'image/jpeg';
+                QRCode.toDataURL(module.qr, options, function (err, string) {
+                  if (err) throw err
+                  function getQueryString(data = {}) {
+                    return Object.entries(data)
+                      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+                      .join('&');
+                  }
+                  const config = {
+                    headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded'
+                    }, transformRequest: getQueryString
+                  }
+                  axios.post(window.apiUrl + '/eps', { data: string.split(',')[1] }, config).then((response) => {
+                    const url = window.URL.createObjectURL(new Blob([response.data]));
+                    a.href = url;
+                    a.download = fileName + ".eps";
+                    a.click();
+                  })
+                });
+                break;
             }
-            if (type !== 'pdf') {
+            if (!(['pdf', 'eps'].includes(type))) {
               a.download = fileName + fileExt;
               a.click();
             }
@@ -234,6 +270,32 @@
           module.downloading = false;
           break;
         }
+      }, fixTabs() {
+        var tabs = document.getElementById('TabsDiv')
+        var swipe = document.getElementById('SwipeDiv')
+        if (module.$q.platform.is.mobile != null && module.$q.screen.width <= 850) {
+          tabs.classList.add("mobileTabs");
+          swipe.classList.remove("hidden");
+        } else {
+          tabs.classList.remove("mobileTabs");
+          swipe.classList.add("hidden");
+        }
+      }
+    },
+    watch: {
+      '$q.screen.width': function () {
+        module.fixTabs();
+      }
+    },
+    computed: {
+      screenSize() {
+        let size = 4;
+        switch (this.$q.screen.name) {
+          case 'xs': size = 1; break;
+          case 'sm': size = 2; break;
+          case 'md': size = 3; break;
+        }
+        return size;
       }
     }
   }
@@ -245,13 +307,20 @@
     font-weight: 400;
     color: white;
     font-size: 3.75rem;
-    padding: 1rem 0 0.75rem 0;
     text-align: center;
   }
 
   #AppContent {
     padding: 1rem 5rem;
   }
+
+    #AppContent.small {
+      padding: 0.75rem 0 !important;
+    }
+
+      #AppContent.small .q-card {
+        border-radius: 0 !important;
+      }
 
   #CanvasArea {
     border-left: 1px solid rgba(0,0,0,0.12);
@@ -260,5 +329,10 @@
   #ViewCanvas {
     display: block;
     margin: 0 auto;
+  }
+
+  #TabsDiv {
+    position: relative;
+    padding-right: 56px;
   }
 </style>

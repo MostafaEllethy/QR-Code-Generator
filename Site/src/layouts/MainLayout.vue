@@ -71,7 +71,7 @@
     <q-dialog v-model="contactUs">
       <q-card style="width: 650px; max-width: 80vw;">
         <q-card-section>
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpxafb4Un8wTqbCRCENkGC09nXVff6q1P_ZJjoUSB4n062XQ/viewform?embedded=true" width="600" height="750" frameborder="0" marginheight="0" marginwidth="0" style="    display: block;
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpxafb4Un8wTqbCRCENkGC09nXVff6q1P_ZJjoUSB4n062XQ/viewform?embedded=true" height="750" frameborder="0" marginheight="0" marginwidth="0" style="width:100%;display: block;
     margin: auto;
 ">
             Loading…
@@ -95,7 +95,7 @@
   let module = null;
   export default {
     name: 'MainLayout',
-    components: { AppHeader}
+    components: { AppHeader }
     , data() {
       return {
         qr: ""
@@ -264,9 +264,9 @@
 </script>
 
 <style lang="scss">
-    #AppContent {
-      padding: 1rem 5rem;
-    }
+  #AppContent {
+    padding: 1rem 5rem;
+  }
 
     #AppContent.small {
       padding: 1px 0 !important;
@@ -284,6 +284,4 @@
     display: block;
     margin: 0 auto;
   }
-
-
 </style>

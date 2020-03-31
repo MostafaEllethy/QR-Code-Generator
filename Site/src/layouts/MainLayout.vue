@@ -1,26 +1,6 @@
 <template>
   <div style="overflow-x: hidden;">
-
-    <h1 id="AppTitle" class="q-py-md-md">
-      <template v-if="screenSize > 2">
-        QR
-        <span class="text-weight-bolder">&lt;CODE/&gt;</span> Generator
-      </template>
-      <template v-else>
-        <div>
-          <h1 class="text-center text-weight-bolder no-margin text-h5" style="display: inline-block;vertical-align:middle;line-height:1;">QR<br /><span>&lt;CODE/&gt;</span></h1>
-          <h1 class="q-ml-sm text-h3 q-my-none" style="display: inline-block;vertical-align: middle;border-bottom: 2px solid white;">Generator</h1>
-        </div>
-      </template>
-    </h1>
-    <div id="TabsDiv">
-      <q-tabs class="text-white" dense narrow-indicator>
-        <q-route-tab v-for="(menuItem, index) in menuList" :key="index" :to="menuItem.path" :icon="menuItem.icon" :label="menuItem.label" exact />
-      </q-tabs>
-      <div id="SwipeDiv" class="text-center hidden" style="position: absolute;right:0px;top:0px;width:56px;height:56px;background:rgba(0,0,0,0.75)">
-        <img src="~assets/swipe.png" style="margin-top: 13px;" width="30">
-      </div>
-    </div>
+    <app-header :screenSize="screenSize"></app-header>
     <div id="AppContent" v-bind:class="{'small': screenSize <= 2}">
       <q-card>
         <q-card-section>
@@ -47,8 +27,6 @@
                   <div class="col-4"><q-input filled v-model.number="quality" dense :input-style="{textAlign: 'center'}" /></div>
                   <div class="col-2 text-center text-subtitle2 self-center">Pixel</div>
                 </div>
-                <q-separator spaced />
-                <div class="sharethis-inline-share-buttons"></div>
                 <q-separator spaced />
                 <q-btn-dropdown class="full-width" color="positive" label="Download" icon="get_app" ref="DownloadPopup" :disable="downloading" :loading="downloading">
                   <div class="row no-wrap q-pa-md">
@@ -102,37 +80,25 @@
       </q-card>
     </q-dialog>
     <div class="text-center q-py-md">
-      <a href="javascript:void();" class="text-grey-4" style="text-decoration: none;font-size: 1.25rem;font-weight: 500;" @click="showContactUs"><q-icon name="chat" /> Contact Us</a>
+      <a href="javascript:void();" class="text-grey-4" style="    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+" @click="showContactUs"><q-icon name="chat" /> Contact Us</a>
     </div>
   </div>
 </template>
-
 <script>
   import QRCode from 'qrcode'
   import jsPDF from 'jspdf'
   import axios from 'axios'
-
+  import AppHeader from '../components/AppHeader'
   let module = null;
-
-  const menuLinks = [
-    { name: 'Text', icon: 'description' }
-    , { name: 'Url', icon: 'link' }
-    , { name: 'WiFi', icon: 'wifi' }
-    , { name: 'Phone', icon: 'local_phone' }
-    , { name: 'SMS', icon: 'sms' }
-    , { name: 'Email', icon: 'alternate_email' }
-    , { name: 'VCard', icon: 'contacts' }
-    , { name: 'Location', icon: 'location_on' }
-    , { name: 'Event', icon: 'event' }
-    , { name: 'AppStore', icon: 'apps' }
-  ]
-
   export default {
     name: 'MainLayout',
-    data() {
+    components: { AppHeader}
+    , data() {
       return {
         qr: ""
-        , menuList: []
         , contactUs: false
         , loading: true
         , minQuality: 100
@@ -141,7 +107,6 @@
         , quality: null
         , downloading: false
         , configLoaded: false
-        , carousel: 'style'
       }
     }
     , created() {
@@ -150,12 +115,6 @@
         window.apiUrl = response.data.apiRoot;
         module.configLoaded = true
       });
-      menuLinks.forEach((item) => {
-        let route = module.$router.resolve({
-          name: item.name
-        }).route;
-        module.menuList.push({ label: route.meta.header, path: route.path, icon: item.icon });
-      })
       module.quality = module.defaultQuality
     }
     , mounted() {
@@ -164,7 +123,10 @@
       module.fixTabs();
     },
     methods: {
-      typing() {
+      test() {
+        alert('test');
+      }
+      , typing() {
         module.loading = true;
       }
       , updateQR(val) {
@@ -302,20 +264,12 @@
 </script>
 
 <style lang="scss">
-  #AppTitle {
-    margin: 0;
-    font-weight: 400;
-    color: white;
-    font-size: 3.75rem;
-    text-align: center;
-  }
-
-  #AppContent {
-    padding: 1rem 5rem;
-  }
+    #AppContent {
+      padding: 1rem 5rem;
+    }
 
     #AppContent.small {
-      padding: 0.75rem 0 !important;
+      padding: 1px 0 !important;
     }
 
       #AppContent.small .q-card {
@@ -331,8 +285,5 @@
     margin: 0 auto;
   }
 
-  #TabsDiv {
-    position: relative;
-    padding-right: 56px;
-  }
+
 </style>

@@ -1,11 +1,10 @@
 <template>
   <div>
     <q-input filled v-model="string"
-             placeholder="Enter text you want to share."
+             placeholder="Text"
              hint="Your QR Code will be generated automatically."
-             :input-style="{fontSize: (screenSize > 2) ? '1.5rem' : '1.25rem', lineHeight: 1.1}"
              type="textarea"
-             rows="7"
+             autogrow
              debounce="250" />
   </div>
 </template>

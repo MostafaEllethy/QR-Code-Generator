@@ -9,7 +9,7 @@
               <q-input filled v-model="name" label="Network Name" placeholder="SSID" stack-label />
             </div>
             <div class="col-xs-4 text-center">
-              <q-toggle v-model="hidden" label="Hidden" />
+              <q-toggle v-model="hidden" label="Hidden Network" />
             </div>
           </div>
         </div>

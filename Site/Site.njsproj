@@ -147,7 +147,7 @@
     <Content Include="src\pages\Error404.vue" />
     <Content Include="src\pages\Email.vue" />
     <Content Include="src\pages\SMS.vue" />
-    <Content Include="src\pages\Url.vue" />
+    <Content Include="src\pages\URL.vue" />
     <Content Include="src\pages\Phone.vue" />
     <Content Include="src\pages\WiFi.vue" />
     <Content Include="src\pages\Text.vue" />

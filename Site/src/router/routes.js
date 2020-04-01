@@ -13,7 +13,6 @@ const routes = [
       , { name: 'VCard', meta: { header: "VCard" }, path: '/v-card', component: () => import('src/pages/VCard.vue') }
       , { name: 'Location', meta: { header: "Location" }, path: '/location', component: () => import('src/pages/Location.vue') }
       , { name: 'Event', meta: { header: "Event" }, path: '/event', component: () => import('src/pages/Event.vue') }
-      , { name: 'AppStore', meta: { header: "AppStore" }, path: '/app-store', component: () => import('src/pages/AppStore.vue') }
     ]
   }
 ]

@@ -55,11 +55,8 @@ namespace Service.Controllers
             using (var image = new MagickImage(ms))
             {
                image.Write(imagePath, MagickFormat.Eps3);
-               image.Dispose();
-               var streamContent = new StreamContent(new FileStream(imagePath, FileMode.Open, FileAccess.Read));
-               response.Content = streamContent;
+               response.Content = new ByteArrayContent(File.ReadAllBytes(imagePath));
                response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
-               response.Content.Headers.ContentDisposition.FileName = "Test.eps";
                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
             }
             new Thread(() =>
@@ -73,7 +70,7 @@ namespace Service.Controllers
 
       private void DeleteFile(string path)
       {
-         Thread.Sleep(60000);
+         Thread.Sleep(600000);
          File.Delete(path);
       }
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-show="componentLoaded">
     <h1 id="AppTitle" class="q-py-md-md">
       <template v-if="screenSize >= 2">
         QR
@@ -31,25 +31,45 @@
     , { name: 'VCard', icon: 'contacts' }
     , { name: 'Location', icon: 'location_on' }
     , { name: 'Event', icon: 'event' }
-    , { name: 'AppStore', icon: 'apps' }
   ]
   let module = null;
   export default {
     props: ['screenSize']
     , data() {
       return {
-        menuList: []
+        menuList: [],
+        componentLoaded: false
       }
     }
-    , created() {
+    , mounted() {
       module = this;
+      module.fixTabs();
       menuLinks.forEach((item) => {
         let route = module.$router.resolve({
           name: item.name
         }).route;
         module.menuList.push({ label: route.meta.header, path: route.path, icon: item.icon });
       })
+      module.componentLoaded = true;
     }
+    , methods: {
+      fixTabs() {
+        var tabs = document.getElementById('TabsDiv')
+        var swipe = document.getElementById('SwipeDiv')
+        if (module.$q.platform.is.mobile != null && module.$q.screen.width <= 850) {
+          tabs.classList.add("mobileTabs");
+          swipe.classList.remove("hidden");
+        } else {
+          tabs.classList.remove("mobileTabs");
+          swipe.classList.add("hidden");
+        }
+      }
+    }
+    , watch: {
+      '$q.screen.width': function () {
+        module.fixTabs();
+      }
+    },
   }
 </script>
 

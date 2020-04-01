@@ -131,11 +131,16 @@
     <Content Include="src\components\AppHeader.vue">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="src\components\Contact.vue">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\QR.vue">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\css\app.scss" />
     <Content Include="src\css\quasar.variables.scss" />
     <Content Include="src\index.template.html" />
     <Content Include="src\layouts\MainLayout.vue" />
-    <Content Include="src\pages\AppStore.vue" />
     <Content Include="src\pages\Event.vue" />
     <Content Include="src\pages\Location.vue" />
     <Content Include="src\pages\VCard.vue" />

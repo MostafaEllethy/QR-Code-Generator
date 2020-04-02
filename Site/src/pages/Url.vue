@@ -1,6 +1,7 @@
 <template>
   <div>
-    <q-input filled v-model="url" placeholder="URL" debounce="250" hint="Your QR Code will be generated automatically." />
+    <h2 class="text-h5 text-weight-bolder text-blue-10 no-margin">URL QR Code</h2>
+    <q-input filled v-model="url" class="q-pt-sm" placeholder="Your QR Code will be generated automatically." />
   </div>
 </template>
 

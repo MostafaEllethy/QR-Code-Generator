@@ -64,23 +64,11 @@
   </div>
 </template>
 <script>
-  const menuLinks = [
-    { name: 'Text', icon: 'description' }
-    , { name: 'Url', icon: 'link' }
-    , { name: 'WiFi', icon: 'wifi' }
-    , { name: 'Phone', icon: 'local_phone' }
-    , { name: 'SMS', icon: 'sms' }
-    , { name: 'Email', icon: 'alternate_email' }
-    , { name: 'VCard', icon: 'contacts' }
-    , { name: 'Location', icon: 'location_on' }
-    , { name: 'Event', icon: 'event' }
-  ]
   let module = null;
   export default {
     props: ['screenSize']
     , data() {
       return {
-        menuList: [],
         componentLoaded: false
         , slide: 'slide'
         , tabMode: 3
@@ -89,12 +77,6 @@
     , mounted() {
       module = this;
       module.fixTabs();
-      menuLinks.forEach((item) => {
-        let route = module.$router.resolve({
-          name: item.name
-        }).route;
-        module.menuList.push({ label: route.meta.header, path: route.path, icon: item.icon });
-      })
       module.componentLoaded = true;
     }
     , methods: {

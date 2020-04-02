@@ -1,5 +1,5 @@
 <template>
-  <div style="overflow-x: hidden;">
+  <div id="Main" style="overflow-x: hidden;">
     <app-header :screenSize="screenSize"></app-header>
     <div id="AppContent" v-bind:class="{'small': screenSize <= 2}">
       <q-card>
@@ -30,16 +30,51 @@
     , beforeRouteEnter(to, from, next) {
       axios.get(window.location.origin + '/statics/config.json').then(function (response) {
         next(() => { window.apiUrl = response.data.apiRoot; })
-      });
+      }).catch(() => {
+        console.log("Error while loading config file.")
+      });;
     }
     , created() {
       module = this;
+      if (document.readyState !== 'loading') {
+        initCode();
+      } else {
+        document.addEventListener('DOMContentLoaded', function () {
+          initCode();
+        });
+      }
+      function initCode() {
+        setTimeout(() => {
+          module.loadGoogleAds()
+          module.loadScriptAsync('https://www.googletagmanager.com/gtag/js?id=UA-162080991-1')
+          module.loadScriptAsync('https://platform-api.sharethis.com/js/sharethis.js#property=5e821ab289347a0019b87623&product=sticky-share-buttons&cms=sop')
+        }, 3500)
+        setTimeout(() => {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'UA-162080991-1');
+        }, 5000)
+      }
     }
     , methods: {
       updateQR(val) {
         if (val !== '') {
           module.$refs.QR.updateQR(val);
         }
+      }
+      , loadScriptAsync(script) {
+        let el = document.createElement('script')
+        el.setAttribute('src', script)
+        el.setAttribute('async', '')
+        document.head.appendChild(el)
+      }
+      , loadGoogleAds() {
+        let el = document.createElement('script')
+        el.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+        el.setAttribute('async', '')
+        el.setAttribute('data-ad-client', 'ca-pub-1361355040123683')
+        document.head.appendChild(el)
       }
     },
     computed: {
@@ -57,6 +92,13 @@
 </script>
 
 <style lang="scss">
+  #Main {
+    min-height: 100vh;
+    background: #1A2980; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #302b63, #00acc1); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #302b63, #00acc1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
   #AppContent {
     padding: 1rem 5rem 0 5rem;
   }

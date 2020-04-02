@@ -1,6 +1,5 @@
 <template>
-
-  <div>
+    <div class="relative-position">
     <h2 class="text-h5 text-weight-bolder text-blue-10 no-margin">Event QR Code</h2>
     <small class="text-caption">Your QR Code will be generated automatically.</small>
     <q-form @submit.prevent="submit" class="q-pt-sm">
@@ -12,10 +11,10 @@
           <q-input filled v-model="location" placeholder="Location" />
         </div>
         <div class="col-xs-12 col-sm-6">
-          <q-input filled v-model="startTime" placeholder="Start Time">
+          <q-input filled v-model="startTime" placeholder="Start Time" @click="showStartDate" readonly>
             <template v-slot:prepend>
               <q-icon name="event" class="cursor-pointer">
-                <q-popup-proxy transition-show="scale" transition-hide="scale">
+                <q-popup-proxy transition-show="scale" transition-hide="scale" ref="StartDatePopup">
                   <q-date v-model="startTime" mask="YYYY-MM-DD HH:mm" />
                 </q-popup-proxy>
               </q-icon>
@@ -24,17 +23,17 @@
             <template v-slot:append>
               <q-icon name="access_time" class="cursor-pointer">
                 <q-popup-proxy transition-show="scale" transition-hide="scale">
-                  <q-time v-model="startTime" mask="YYYY-MM-DD HH:mm" format24h />
+                  <q-time v-model="startTime" mask="YYYY-MM-DD HH:mm" />
                 </q-popup-proxy>
               </q-icon>
             </template>
           </q-input>
         </div>
         <div class="col-xs-12 col-sm-6">
-          <q-input filled v-model="endTime" placeholder="End Time">
+          <q-input filled v-model="endTime" readonly placeholder="End Time"  @click="showEndDate">
             <template v-slot:prepend>
               <q-icon name="event" class="cursor-pointer">
-                <q-popup-proxy transition-show="scale" transition-hide="scale">
+                <q-popup-proxy transition-show="scale" transition-hide="scale" ref="EndDatePopup">
                   <q-date v-model="endTime" mask="YYYY-MM-DD HH:mm" />
                 </q-popup-proxy>
               </q-icon>
@@ -43,7 +42,7 @@
             <template v-slot:append>
               <q-icon name="access_time" class="cursor-pointer">
                 <q-popup-proxy transition-show="scale" transition-hide="scale">
-                  <q-time v-model="endTime" mask="YYYY-MM-DD HH:mm" format24h />
+                  <q-time v-model="endTime" mask="YYYY-MM-DD HH:mm" />
                 </q-popup-proxy>
               </q-icon>
             </template>
@@ -63,6 +62,14 @@
         , location: ''
         , startTime: ''
         , endTime: ''
+      }
+    }
+    , methods: {
+      showStartDate() {
+        this.$refs.StartDatePopup.show();
+      }
+      , showEndDate() {
+        this.$refs.EndDatePopup.show();
       }
     }
     , computed: {

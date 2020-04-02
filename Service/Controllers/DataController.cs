@@ -1,6 +1,9 @@
 ﻿using ImageMagick;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -18,23 +21,14 @@ using System.Web.Script.Services;
 
 namespace Service.Controllers
 {
-   [EnableCors(origins: "http://localhost:8080", headers: "*", methods: "*")]
+   [EnableCors(origins: "*", headers: "*", methods: "*")]
    public class DataController : ApiController
    {
-      // GET: api/Test
-      [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-      public IEnumerable<string> Get()
-      {
-         return new string[] { "value1", "value2" };
-      }
-
-      // GET: api/Test/5
       public string Get(int id)
       {
          return "value";
       }
 
-      // POST: api/Test
       [HttpPost, Route("eps")]
       public HttpResponseMessage Data()
       {
@@ -45,43 +39,20 @@ namespace Service.Controllers
          {
             data += new string('=', 4 - mod4);
          }
-
          byte[] bytes = Convert.FromBase64String(data);
          HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
          using (MemoryStream ms = new MemoryStream(bytes))
          {
-            Directory.CreateDirectory("Temp");
-            var imagePath = Path.Combine("Temp", DateTime.Now.Ticks.ToString()) + ".eps";
             using (var image = new MagickImage(ms))
             {
-               image.Write(imagePath, MagickFormat.Eps3);
-               response.Content = new ByteArrayContent(File.ReadAllBytes(imagePath));
+               MemoryStream eps = new MemoryStream();
+               image.Write(eps, MagickFormat.Eps3);
+               response.Content = new ByteArrayContent(eps.ToArray());
                response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
             }
-            new Thread(() =>
-            {
-               Thread.CurrentThread.IsBackground = true;
-               DeleteFile(imagePath);
-            }).Start();
          }
          return response;
-      }
-
-      private void DeleteFile(string path)
-      {
-         Thread.Sleep(600000);
-         File.Delete(path);
-      }
-
-      // PUT: api/Test/5
-      public void Put(int id, [FromBody]string value)
-      {
-      }
-
-      // DELETE: api/Test/5
-      public void Delete(int id)
-      {
       }
    }
 }

@@ -159,20 +159,13 @@
                       .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
                       .join('&');
                   }
-                  const config = {
-                    responseType: 'arraybuffer'
-                    , headers: {
-                      'Content-Type': 'application/x-www-form-urlencoded'
-                      , 'Accept': 'application/octet-stream'
-                    }, transformRequest: getQueryString
-                  }
-                  module.$axios.post(window.apiUrl + '/eps', { data: string.split(',')[1] }, config).then((response) => {
+                  module.$axios.post(window.apiUrl + '/api/QR/Eps', { svg: string.split(',')[1] }, { responseType: 'arraybuffer' }).then((response) => {
                     const url = window.URL.createObjectURL(new Blob([response.data], { type: "octet/stream" }));
                     a.href = url;
                     a.download = fileName + ".eps";
                     a.click();
                     module.downloading = false;
-                  })
+                  }).catch(() => { module.downloading = false; })
                 });
                 break;
             }

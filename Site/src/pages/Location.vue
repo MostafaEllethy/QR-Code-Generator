@@ -24,10 +24,12 @@
 
   export default {
     beforeRouteEnter(to, from, next) {
-      let el = document.createElement('script')
-      el.setAttribute('src', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBl7pbD9dLSBvz8CC2Z5nnvVJVtSOb5-rQ')
-      el.setAttribute('async', '')
-      document.head.appendChild(el)
+      if (!(typeof google === 'object' && typeof google.maps === 'object')) {
+        let el = document.createElement('script')
+        el.setAttribute('src', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBl7pbD9dLSBvz8CC2Z5nnvVJVtSOb5-rQ')
+        el.setAttribute('async', '')
+        document.head.appendChild(el)
+      }
       next();
     }
     , data() {

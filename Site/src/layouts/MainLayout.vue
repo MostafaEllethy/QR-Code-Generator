@@ -5,10 +5,10 @@
       <q-card>
         <q-card-section>
           <div class="row">
-            <div class="col-xs-12 col-sm-7 col-md-8 q-pr-sm-md q-pb-xs-md">
+            <div class="col-xs-12 col-sm-7 col-md-8" v-bind:class="{'q-pr-md': screenSize >= 2, 'q-pb-md': screenSize === 1}">
               <router-view @updateQR="updateQR" :screenSize="screenSize" />
             </div>
-            <div id="CanvasArea" class="col-xs-12 col-sm-5 col-md-4 q-pl-sm-md" v-bind:class="{'border': $q.screen.name !== 'xs'}">
+            <div id="CanvasArea" class="col-xs-12 col-sm-5 col-md-4" v-bind:class="{'border q-pl-md': $q.screen.name !== 'xs'}">
               <QR ref="QR"></QR>
             </div>
           </div>
@@ -48,13 +48,13 @@
           module.loadGoogleAds()
           module.loadScriptAsync('https://www.googletagmanager.com/gtag/js?id=UA-162080991-1')
           module.loadScriptAsync('https://platform-api.sharethis.com/js/sharethis.js#property=5e821ab289347a0019b87623&product=sticky-share-buttons&cms=sop')
-        }, 3500)
+        }, 2000)
         setTimeout(() => {
           window.dataLayer = window.dataLayer || [];
           function gtag() { dataLayer.push(arguments); }
           gtag('js', new Date());
           gtag('config', 'UA-162080991-1');
-        }, 5000)
+        }, 3000)
       }
     }
     , methods: {
@@ -90,28 +90,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-  #Main {
-    min-height: 100vh;
-    background: #1A2980; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #302b63, #00acc1); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #302b63, #00acc1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  }
-
-  #AppContent {
-    padding: 1rem 5rem 0 5rem;
-  }
-
-    #AppContent.small {
-      padding: 1px 0 !important;
-    }
-
-      #AppContent.small .q-card {
-        border-radius: 0 !important;
-      }
-
-  #CanvasArea.border {
-    border-left: 1px solid rgba(0,0,0,0.12);
-  }
-</style>

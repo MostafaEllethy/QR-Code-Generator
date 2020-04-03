@@ -1,6 +1,6 @@
 <template>
   <div v-show="componentLoaded" id="AppHeader">
-    <h1 id="AppTitle" class="q-py-md-md">
+    <h1 id="AppTitle" v-bind:class="{'q-py-md': screenSize >= 3}">
       <template v-if="screenSize >= 2">
         QR
         <span class="text-weight-bold">&lt;CODE/&gt;</span> Generator
@@ -53,7 +53,7 @@
           </q-tabs>
         </q-carousel-slide>
         <q-carousel-slide name="slide3" class="no-padding" v-if="tabMode === 1">
-          <q-tabs class="q-px-xs-xl" dense narrow-indicator>
+          <q-tabs v-bind:class="{'q-px-xl': screenSize === 1}" dense narrow-indicator>
             <q-route-tab :to="{name: 'Location'}" icon="location_on" label="Location" exact />
             <q-route-tab :to="{name: 'Email'}" icon="alternate_email" label="Email" exact />
             <q-route-tab :to="{name: 'Event'}" icon="event" label="Event" exact />

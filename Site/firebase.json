@@ -1,6 +1,5 @@
 {
   "hosting": {
-  "site": "qr-code-generator-1",
     "public": "dist/spa",
     "ignore": [
       "firebase.json",

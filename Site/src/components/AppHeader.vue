@@ -39,7 +39,7 @@
       </q-carousel-slide>
       <template v-if="tabMode !== 3">
         <q-carousel-slide name="slide2" class="no-padding">
-          <q-tabs class="q-px-xs-xl" dense narrow-indicator>
+          <q-tabs class="q-px-xl" dense narrow-indicator>
             <template v-if="tabMode === 1">
               <q-route-tab :to="{name: 'VCard'}" icon="contacts" label="VCard" exact />
               <q-route-tab :to="{name: 'Phone'}" icon="local_phone" label="Phone" exact />
@@ -53,7 +53,7 @@
           </q-tabs>
         </q-carousel-slide>
         <q-carousel-slide name="slide3" class="no-padding" v-if="tabMode === 1">
-          <q-tabs v-bind:class="{'q-px-xl': screenSize === 1}" dense narrow-indicator>
+          <q-tabs class="q-px-xl" dense narrow-indicator>
             <q-route-tab :to="{name: 'Location'}" icon="location_on" label="Location" exact />
             <q-route-tab :to="{name: 'Email'}" icon="alternate_email" label="Email" exact />
             <q-route-tab :to="{name: 'Event'}" icon="event" label="Event" exact />

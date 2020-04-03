@@ -15,7 +15,7 @@
         </q-card-section>
       </q-card>
     </div>
-    <Contact></Contact>
+    <Contact :screenSize="screenSize"></Contact>
   </div>
 </template>
 <script>

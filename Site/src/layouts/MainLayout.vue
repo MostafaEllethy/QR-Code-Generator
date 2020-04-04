@@ -46,14 +46,9 @@
       function initCode() {
         setTimeout(() => {
           module.loadGoogleAds()
-          module.loadScriptAsync('https://www.googletagmanager.com/gtag/js?id=UA-162080991-1')
-          module.loadScriptAsync('https://platform-api.sharethis.com/js/sharethis.js#property=5e821ab289347a0019b87623&product=sticky-share-buttons&cms=sop')
         }, 2000)
         setTimeout(() => {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          gtag('js', new Date());
-          gtag('config', 'UA-162080991-1');
+          module.loadScriptAsync('https://platform-api.sharethis.com/js/sharethis.js#property=5e821ab289347a0019b87623&product=sticky-share-buttons&cms=sop')
         }, 3000)
       }
     }

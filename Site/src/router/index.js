@@ -3,6 +3,10 @@ import VueRouter from 'vue-router'
 
 import routes from './routes'
 
+import VueGtag from "vue-gtag";
+
+
+
 Vue.use(VueRouter)
 
 /*
@@ -25,6 +29,8 @@ export default function (/* { store, ssrContext } */) {
     mode: process.env.VUE_ROUTER_MODE,
     base: process.env.VUE_ROUTER_BASE
   })
-
+  Vue.use(VueGtag, {
+    config: { id: "UA-162080991-1" }
+  }, Router);
   return Router
 }

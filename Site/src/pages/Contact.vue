@@ -16,11 +16,11 @@
               <div class="col-12 text-h4 text-blue-10 text-center">
                 <div class="full-height flex justify-center items-center">
                   Thank You!
-                </div>                
+                </div>
               </div>
             </template>
             <template v-else>
-              <h1 class="text-center text-weight-bolder text-blue-10 text-h4 no-margin q-pb-xs">Get in touch</h1>
+              <h1 class="text-center text-weight-bolder text-h4 no-margin q-pb-xs">Get in touch</h1>
               <div class="col-12">
                 <q-input filled v-model="contact.name" label="Name" required :readonly="sending" />
               </div>
@@ -74,3 +74,9 @@
     }
   }
 </script>
+
+<style scoped>
+  h1 {
+    color: #1A2980;
+  }
+</style>

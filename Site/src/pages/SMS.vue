@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-h4 text-weight-bolder text-blue-10 no-margin">SMS QR Code</h1>
+    <h1 class="text-h4 text-weight-bolder h-color no-margin">SMS QR Code</h1>
     <small class="text-caption">Your QR Code will be generated automatically.</small>
     <q-form @submit.prevent="submit" class="q-pt-sm">
       <div class="row q-col-gutter-md">

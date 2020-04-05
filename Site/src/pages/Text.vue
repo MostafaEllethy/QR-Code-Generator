@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h2 class="text-h5 text-weight-bolder text-blue-10 no-margin">Text QR Code</h2>
-    <q-input filled v-model="string" class="q-pt-sm" type="textarea" placeholder="Your QR Code will be generated automatically." hint="Press <Enter> for new line." autogrow />
+    <h1 class="text-h4 text-weight-bolder text-blue-10 no-margin">Text QR Code</h1>
+    <small class="text-caption">Your QR Code will be generated automatically.</small>
+    <q-input filled v-model="string" class="q-pt-sm" type="textarea" rows="7" placeholder="Enter your text"/>
   </div>
 </template>
 

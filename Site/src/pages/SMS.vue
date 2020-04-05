@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h2 class="text-h5 text-weight-bolder text-blue-10 no-margin">SMS QR Code</h2>
+    <h1 class="text-h4 text-weight-bolder text-blue-10 no-margin">SMS QR Code</h1>
     <small class="text-caption">Your QR Code will be generated automatically.</small>
     <q-form @submit.prevent="submit" class="q-pt-sm">
       <div class="row q-col-gutter-md">
         <div class="col-12">
-          <q-input filled v-model="sms" placeholder="SMS Message" hint="Press <Enter> for new line." autogrow/>
+          <q-input filled v-model="sms" placeholder="SMS Message" type="textarea" rows="7"/>
         </div>
       </div>
     </q-form>

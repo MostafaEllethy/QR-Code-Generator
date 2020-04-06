@@ -59,13 +59,6 @@
         console.log("Error while loading config file.")
       });;
     }
-    , mounted() {
-      let module = this;
-
-      if (this.$q.cookies.get('cookiesAccepted') == null) {
-
-      }
-    }
     , computed: {
       screenSize() {
         let size = 4;

@@ -4,8 +4,8 @@
       <q-separator />
     </div>
     <div id="QRPreview" class="full-width relative-position">
-      <div class="svg" style="width:67%;margin: auto;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h33v33H0z" /><path stroke="#000000" d="M2 2.5h7m2 0h1m1 0h1m3 0h2m2 0h2m1 0h7M2 3.5h1m5 0h1m2 0h2m9 0h1m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h4m2 0h1m1 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h1m1 0h3m3 0h2m4 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h3m1 0h4m1 0h4m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m3 0h5m4 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m2 0h3m1 0h1m3 0h1M2 10.5h1m1 0h5m2 0h3m2 0h2m1 0h1m2 0h1m1 0h5M4 11.5h2m3 0h2m3 0h1m2 0h2m2 0h6m3 0h1M3 12.5h3m2 0h2m1 0h2m1 0h1m4 0h2m1 0h1m1 0h2M2 13.5h2m7 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1M3 14.5h3m2 0h2m1 0h4m3 0h3m6 0h2M2 15.5h2m3 0h1m1 0h1m5 0h3m1 0h8m3 0h1M2 16.5h1m1 0h2m2 0h1m1 0h1m1 0h1m1 0h6m5 0h4M2 17.5h1m3 0h2m1 0h2m4 0h1m1 0h1m2 0h4m1 0h1m3 0h1M4 18.5h1m2 0h2m1 0h1m1 0h3m1 0h2m1 0h1m1 0h1m5 0h2M2 19.5h1m1 0h1m2 0h1m1 0h1m2 0h3m2 0h8m1 0h1m1 0h1m1 0h1M2 20.5h1m4 0h3m2 0h1m1 0h1m5 0h1m1 0h1m5 0h1M2 21.5h1m1 0h1m4 0h2m2 0h2m1 0h1m1 0h1m3 0h1m3 0h1m2 0h1M2 22.5h1m1 0h1m3 0h1m4 0h1m5 0h1m2 0h5m1 0h3M10 23.5h1m1 0h2m1 0h3m1 0h2m1 0h1m3 0h5M2 24.5h7m5 0h6m1 0h2m1 0h1m1 0h3M2 25.5h1m5 0h1m1 0h1m4 0h1m2 0h1m1 0h3m3 0h1m3 0h1M2 26.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m2 0h5m1 0h1m1 0h1M2 27.5h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m4 0h4m1 0h1m1 0h2M2 28.5h1m1 0h3m1 0h1m1 0h1m6 0h3m1 0h1m1 0h7M2 29.5h1m5 0h1m4 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m1 0h1M2 30.5h7m1 0h1m1 0h2m1 0h2m2 0h1m1 0h1m4 0h3" /></svg>
+      <div class="svg" style="margin: auto;" v-bind:style="{width: (screenSize >= 3) ?'85%' : '90%' }" v-bind:class="{'q-pt-sm': $q.screen.name === 'xs'}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h30v30H0z" /><path stroke="#000000" d="M0.5 1h7m2 0h1m1 0h1m3 0h2m2 0h2m1 0h7M0.5 2h1m5 0h1m2 0h2m9 0h1m1 0h1m5 0h1M0.5 3h1m1 0h3m1 0h1m1 0h4m2 0h1m1 0h1m1 0h1m3 0h1m1 0h3m1 0h1M0.5 4h1m1 0h3m1 0h1m1 0h1m1 0h3m3 0h2m4 0h1m1 0h3m1 0h1M0.5 5h1m1 0h3m1 0h1m1 0h3m1 0h4m1 0h4m1 0h1m1 0h3m1 0h1M0.5 6h1m5 0h1m1 0h2m3 0h5m4 0h1m5 0h1M0.5 7h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8.5 8h1m2 0h3m1 0h1m3 0h1M0.5 9h1m1 0h5m2 0h3m2 0h2m1 0h1m2 0h1m1 0h5M2.5 10h2m3 0h2m3 0h1m2 0h2m2 0h6m3 0h1M1.5 11h3m2 0h2m1 0h2m1 0h1m4 0h2m1 0h1m1 0h2M0.5 12h2m7 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1M1.5 13h3m2 0h2m1 0h4m3 0h3m6 0h2M0.5 14h2m3 0h1m1 0h1m5 0h3m1 0h8m3 0h1M0.5 15h1m1 0h2m2 0h1m1 0h1m1 0h1m1 0h6m5 0h4M0.5 16h1m3 0h2m1 0h2m4 0h1m1 0h1m2 0h4m1 0h1m3 0h1M2.5 17h1m2 0h2m1 0h1m1 0h3m1 0h2m1 0h1m1 0h1m5 0h2M0.5 18h1m1 0h1m2 0h1m1 0h1m2 0h3m2 0h8m1 0h1m1 0h1m1 0h1M0.5 19h1m4 0h3m2 0h1m1 0h1m5 0h1m1 0h1m5 0h1M0.5 20h1m1 0h1m4 0h2m2 0h2m1 0h1m1 0h1m3 0h1m3 0h1m2 0h1M0.5 21h1m1 0h1m3 0h1m4 0h1m5 0h1m2 0h5m1 0h3M8.5 22h1m1 0h2m1 0h3m1 0h2m1 0h1m3 0h5M0.5 23h7m5 0h6m1 0h2m1 0h1m1 0h3M0.5 24h1m5 0h1m1 0h1m4 0h1m2 0h1m1 0h3m3 0h1m3 0h1M0.5 25h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m2 0h5m1 0h1m1 0h1M0.5 26h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m4 0h4m1 0h1m1 0h2M0.5 27h1m1 0h3m1 0h1m1 0h1m6 0h3m1 0h1m1 0h7M0.5 28h1m5 0h1m4 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m1 0h1M0.5 29h7m1 0h1m1 0h2m1 0h2m2 0h1m1 0h1m4 0h3" /></svg>
       </div>
       <q-inner-loading :showing="loading">
         <q-circular-progress indeterminate
@@ -68,7 +68,8 @@
   let module = null;
 
   export default {
-    created() {
+    props: ['screenSize']
+    , created() {
       module = this;
       module.quality = module.defaultQuality
     }
@@ -81,12 +82,13 @@
         , quality: null
         , downloading: false
         , loading: false
+        , margin: 0.5
       }
     }
     , methods: {
       updateQR(qr) {
         module.loading = true;
-        QRCode.toString(qr, { type: 'svg', margin: 2 }, function (err, string) {
+        QRCode.toString(qr, { type: 'svg', margin: module.margin }, function (err, string) {
           if (err) throw err
           document.querySelector("#QRPreview .svg").innerHTML = string;
           module.qr = qr;
@@ -106,7 +108,7 @@
             var a = document.createElement("a");
             let fileName = 'qr_' + Date.now();
             let fileExt = '';
-            let options = { width: quality, margin: 1, type };
+            let options = { width: quality, margin: module.margin, type };
             switch (type) {
               case 'png':
                 options.type = 'image/png';
@@ -133,7 +135,7 @@
                 fileExt = ".webp";
                 break;
               case 'svg':
-                QRCode.toString(module.qr, { type: 'svg' }, function (err, string) {
+                QRCode.toString(module.qr, { type: 'svg', margin: module.margin }, function (err, string) {
                   if (err) throw err
                   a.href = 'data:image/svg+xml;utf8,' + encodeURIComponent(string)
                 });
@@ -181,6 +183,3 @@
     }
   }
 </script>
-
-<style scoped>
-</style>

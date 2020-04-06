@@ -5,7 +5,7 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       {
-        path: '', component: () => import('layouts/QR.vue'), children: [
+        path: '', component: () => import('layouts/QR.vue'),children: [
           { name: 'Text', meta: { header: "Text" }, path: '', component: () => import('pages/Text.vue') }
           , { name: 'URL', meta: { header: "URL" }, path: '/url', component: () => import('src/pages/URL.vue') }
           , { name: 'WiFi', meta: { header: "WiFi" }, path: '/wifi', component: () => import('src/pages/WiFi.vue') }

@@ -1,16 +1,23 @@
 <template>
   <div v-show="componentLoaded" id="AppHeader">
-    <h1 id="AppTitle" v-bind:class="{'q-py-md': screenSize >= 3}">
-      <template v-if="screenSize >= 2">
-        QR
-        <span class="text-weight-bold">&lt;CODE/&gt;</span> Generator
-      </template>
-      <template v-else>
-        <h1 class="text-center no-margin text-h5" style="display: inline-block;vertical-align:middle;">QR<br /><span class="text-weight-bold">&lt;CODE/&gt;</span></h1>
-        <h1 class="q-ml-sm q-my-none" style="display: inline-block;vertical-align: middle;font-size:2.75rem">Generator</h1>
-      </template>
-    </h1>
 
+    <div id="AppTitle" style="margin: 1.5rem auto;">
+      <h1 class="text-h2 text-white no-margin">QR<span class="text-weight-bolder">CODE</span> Generator</h1>
+      <q-btn round push color="transparent" icon="menu" id="IconMenu">
+        <q-menu anchor="bottom middle" self="top middle" :offset=[0,5] content-class="text-center text-weight-bold text-cyan-9">
+          <q-item clickable :to="($route.meta.header == null) ? {name: 'Text', hash: '#FAQ'} : {hash: '#FAQ'}">
+            <q-item-section>FAQ</q-item-section>
+          </q-item>
+          <q-item clickable :to="{name: 'PrivacyPolicy'}">
+            <q-item-section>Privacy Policy</q-item-section>
+          </q-item>
+          <q-item clickable :to="{name: 'Contact'}">
+            <q-item-section>Contact Us</q-item-section>
+          </q-item>
+        </q-menu>
+      </q-btn>
+
+    </div>
     <q-carousel v-model="slide"
                 animated
                 swipeable
@@ -85,7 +92,7 @@
         let screenWidth = this.$q.screen.width;
         if (screenWidth <= 450) {
           this.tabMode = 1;
-        } else if (screenWidth >= 700) {
+        } else if (screenWidth >= 707) {
           this.tabMode = 3;
         } else {
           this.tabMode = 2
@@ -101,6 +108,10 @@
 </script>
 
 <style>
+  .remove-x-margin {
+    margin: auto 0 !important;
+  }
+
   #AppHeader .q-carousel__prev-arrow--horizontal {
     top: 11px;
   }
@@ -111,22 +122,48 @@
 </style>
 
 <style scoped>
+
   #AppTitle {
-    margin: 0;
-    color: white;
-    font-size: 3.75rem;
-    text-align: center;
-    line-height: 1.375;
+    position: relative;
   }
 
-    #AppTitle h1 {
-      line-height: 1 !important;
-    }
+  #AppTitle h1{
+    text-align: center;
+    line-height: 1;
+  }
 
-  @media only screen and (max-width: 1024px) {
-    #AppTitle {
+  #IconMenu {
+    position: absolute;
+    top: 50%;
+    right: 7%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media only screen and (max-width: 1023px) {
+    #IconMenu {
+      right: 3.75%;
+    }
+  }
+
+  @media only screen and (max-width:707px) {
+    #AppTitle h1{
       font-size: 3rem;
-      line-height: 2.25;
+    }
+    #IconMenu {
+      right: 0px;
+    }
+  }
+
+  @media only screen and (max-width:555px) {
+    #AppTitle h1 {
+      padding-left: 2.5%;
+      text-align: left;
+    }
+  }
+
+  @media only screen and (max-width:499px) {
+    #AppTitle h1 {
+      font-size: 2.125rem !important;
     }
   }
 </style>

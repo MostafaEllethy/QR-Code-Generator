@@ -148,7 +148,6 @@
     <Content Include="src\layouts\QR.vue" />
     <Content Include="src\pages\Contact.vue" />
     <Content Include="src\pages\Event.vue" />
-    <Content Include="src\pages\FAQ.vue" />
     <Content Include="src\pages\Location.vue" />
     <Content Include="src\pages\PrivacyPolicy.vue" />
     <Content Include="src\pages\VCard.vue" />

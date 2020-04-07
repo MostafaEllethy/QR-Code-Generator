@@ -25,7 +25,7 @@
           Educators that have the authority to act on parent’s behalf, may allow students under 13 to use our Service, if such use is for educational purposes, and if this use ensures that students will not provide any personal information.
         </div>
         <div class="text-body1 q-pb-sm">
-          If you have questions about our Service, please contact us at <a href="mailto:admin@qr-code-generator.com">admin@qr-code-generator.com</a> or <router-link :to="{ name: 'Contact'}">here</router-link>;
+          If you have questions about our Service, please contact us at <a href="mailto:admin@qr-code-generator.info">admin@qr-code-generator.com</a> or <router-link :to="{ name: 'Contact'}">here</router-link>;
         </div>
       </div>
     </q-card-section>

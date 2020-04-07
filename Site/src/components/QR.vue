@@ -21,7 +21,7 @@
         Quality <q-icon name="double_arrow" />
       </div>
       <div class="col-sm-8 col-9">
-        <q-slider v-model="quality" :min="minQuality" :max="maxQuality" :step="5" :disable="downloading" />
+        <q-slider v-model="quality" :min="minQuality" :max="maxQuality" :step="5" color="indigo-10" :disable="downloading" />
       </div>
     </div>
     <div class="row text-weight-bold" style="font-size:0.825rem;">

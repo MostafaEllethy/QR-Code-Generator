@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="text-h4 text-weight-bolder h-color no-margin">Location QR Code</h1>
-    <small class="text-caption"><span class="text-weight-bold">Drag The Marker and Choose You Location.</span> Your QR Code will be generated automatically.</small>
+    <small class="text-caption"><span class="text-weight-bold">Drag The Marker and Choose Your Location.</span> Your QR Code will be generated automatically.</small>
     <q-form @submit.prevent="submit" class="q-pt-sm">
       <div class="row q-col-gutter-md">
         <div class="col-xs-12 col-md-6">

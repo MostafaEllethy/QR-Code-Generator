@@ -12,16 +12,16 @@
     </q-card-section>
     <div class="row q-px-md bg-grey-2" id="About">
       <div class="col-12">
-        <h3 class="text-center text-weight-bold text-grey-7 text-body1 q-pt-xl q-mb-xs">ABOUT</h3>
-        <h2 class="text-center no-margin text-h4 text-weight-bolder">QR-Code-Generator.info</h2>
-        <p class="text-body1 text-center q-pt-md q-px-xl q-pb-xl">
+        <h3 class="text-center text-weight-bold text-grey-7 text-body1 q-pt-xl q-mb-xs no-margin">ABOUT</h3>
+        <h2 class="text-center no-margin text-h4 text-weight-bolder text-indigo-10">QR-Code-Generator.info</h2>
+        <p class="text-body1 text-center q-pt-md q-px-xl q-pb-xl no-margin">
           QR-Code-Generator.info is a 100% Free Online High Quality QR Codes Generator Which Offers Downloading High Resolution QR Codes for Print and Vector Formats. All Generated QR Codes are Free for Commercial Usage.
         </p>
       </div>
     </div>
     <div class="row q-py-xl" id="FAQ">
       <div class="col-12">
-        <h2 style="color: #5c5e70;" class="text-h5 text-center text-weight-bolder q-mb-xl"><img src="~assets/faq.png" width="65" style="vertical-align:middle;" v-if="$q.screen.name !== 'xs'" /> Frequently Asked Questions</h2>
+        <h2 style="color: #5c5e70;" class="text-h5 text-center text-weight-bolder q-pb-xl no-margin"><img src="~assets/faq.png" width="65" style="vertical-align:middle;" v-if="$q.screen.name !== 'xs'" /> Frequently Asked Questions</h2>
         <div class="row q-col-gutter-sm q-px-md">
           <div class="col-xs-12 col-sm-6">
             <q-list>
@@ -73,7 +73,7 @@
                 <q-separator />
                 <q-card>
                   <q-card-section class="text-justify text-subtitle1">
-                    There are many reasons why a QR code is not working correctly. At first check your entered data. Sometimes there are little typos in your URL that break your QR code. Some QR codes (like vCard) contain a lot of data. Try reducing the data you entered for your QR code if possible. This can make it easier for QR code scanner apps to read your code. Try to remove the logo in your QR code and check if this helps. Also make sure that there is enough contrast between the background and foreground of the QR code. The foreground should always be darker than the background.
+                    At first check your entered data. Sometimes there are little typos in your URL that break your QR code. Some QR codes (like vCard) contain a lot of data. Try reducing the data you entered for your QR code if possible. This can make it easier for QR code scanner apps to read your code.
                   </q-card-section>
                 </q-card>
               </q-expansion-item>

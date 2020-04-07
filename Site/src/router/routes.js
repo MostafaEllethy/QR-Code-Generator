@@ -20,7 +20,6 @@ const routes = [
       , {
         path: '', component: () => import('layouts/Plain.vue'), children: [
           , { name: 'Contact', path: '/contact-us', component: () => import('pages/Contact.vue') }
-          , { name: 'FAQ', path: '/faq', component: () => import('pages/FAQ.vue') }
           , { name: 'PrivacyPolicy', path: '/privacy-policy', component: () => import('pages/PrivacyPolicy.vue') }
         ]
       }

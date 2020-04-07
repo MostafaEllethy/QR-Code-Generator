@@ -17,7 +17,7 @@
     "jspdf": "^1.5.3",
     "npm-check-updates": "^4.1.1",
     "qrcode": "^1.4.4",
-    "quasar": "^1.9.12",
+    "quasar": "^1.9.13",
     "vue-gtag": "^1.6.2"
   },
   "devDependencies": {

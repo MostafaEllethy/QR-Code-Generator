@@ -10,39 +10,42 @@
         </div>
       </div>
     </q-card-section>
-    <div class="row q-px-md q-pb-lg bg-grey-2" id="FAQ">
+    <div class="row q-px-md bg-grey-2" id="About">
       <div class="col-12">
-        <h2 style="color: #5c5e70;" class="text-h5 text-center text-weight-bolder"><img src="~assets/faq.png" width="65" style="vertical-align:middle;" v-if="$q.screen.name !== 'xs'" /> Frequently Asked Questions</h2>
-        <div class="row q-col-gutter-sm">
+        <h3 class="text-center text-weight-bold text-grey-7 text-body1 q-pt-xl q-mb-xs">ABOUT</h3>
+        <h2 class="text-center no-margin text-h4 text-weight-bolder">QR-Code-Generator.info</h2>
+        <p class="text-body1 text-center q-pt-md q-px-xl q-pb-xl">
+          QR-Code-Generator.info is a 100% Free Online High Quality QR Codes Generator Which Offers Downloading High Resolution QR Codes for Print and Vector Formats. All Generated QR Codes are Free for Commercial Usage.
+        </p>
+      </div>
+    </div>
+    <div class="row q-py-xl" id="FAQ">
+      <div class="col-12">
+        <h2 style="color: #5c5e70;" class="text-h5 text-center text-weight-bolder q-mb-xl"><img src="~assets/faq.png" width="65" style="vertical-align:middle;" v-if="$q.screen.name !== 'xs'" /> Frequently Asked Questions</h2>
+        <div class="row q-col-gutter-sm q-px-md">
           <div class="col-xs-12 col-sm-6">
             <q-list>
-              <q-expansion-item label="What is QR Code?" popup>
+              <q-expansion-item label="What is a QR Code?" header-class="text-weight-bold text-subtitle1" popup>
                 <q-separator />
                 <q-card>
-                  <q-card-section>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                    eveniet doloribus ullam aliquid.
+                  <q-card-section class="text-justify text-subtitle1">
+                    A <a href="https://en.wikipedia.org/wiki/QR_code" target="_blank">QR Code</a> is a two-dimensional barcode that consists of a black and white pixel pattern which allows storing data including url links, geo coordinates and text that can be recognized by smartphones and tablets.
                   </q-card-section>
                 </q-card>
               </q-expansion-item>
-              <q-expansion-item label="How QR Code Generator works?" popup>
+              <q-expansion-item label="How can QR Codes be scanned?" header-class="text-weight-bold text-subtitle1" popup>
                 <q-separator />
                 <q-card>
-                  <q-card-section>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                    eveniet doloribus ullam aliquid.
+                  <q-card-section class="text-justify text-subtitle1">
+                    Scanning QR Codes need nothing more than a mobile phone or tablet and a QR Code reader app that is installed on that device. These QR Code readers are freely available to download from all App Stores.
                   </q-card-section>
                 </q-card>
               </q-expansion-item>
-              <q-expansion-item label="My QR code is not working, what can I do?" popup>
+              <q-expansion-item label="Can I use the generated QR Codes for commercial purposes?" header-class="text-weight-bold text-subtitle1" popup>
                 <q-separator />
                 <q-card>
-                  <q-card-section>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                    eveniet doloribus ullam aliquid.
+                  <q-card-section class="text-justify text-subtitle1">
+                    Yes, all QR codes you created with this QR generator are free and can be used for whatever you want.
                   </q-card-section>
                 </q-card>
               </q-expansion-item>
@@ -50,33 +53,27 @@
           </div>
           <div class="col-xs-12 col-sm-6">
             <q-list v-bind:class="{'q-mt-md': $q.screen.name === 'xs'}">
-              <q-expansion-item label="What is QR Code?" popup>
+              <q-expansion-item label="Is QR-Code-Generator.info saving my data?" header-class="text-weight-bold text-subtitle1" popup>
                 <q-separator />
                 <q-card>
-                  <q-card-section>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                    eveniet doloribus ullam aliquid.
+                  <q-card-section class="text-justify text-subtitle1">
+                    We do not save, collect or share your data in any form.
                   </q-card-section>
                 </q-card>
               </q-expansion-item>
-              <q-expansion-item label="How QR Code Generator works?" popup>
+              <q-expansion-item label="Are the generated QR Codes expiring?" header-class="text-weight-bold text-subtitle1" popup>
                 <q-separator />
                 <q-card>
-                  <q-card-section>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                    eveniet doloribus ullam aliquid.
+                  <q-card-section class="text-justify text-subtitle1">
+                    QR Codes do not expire and will work forever! You will not be able to edit the content of the QR Code again.
                   </q-card-section>
                 </q-card>
               </q-expansion-item>
-              <q-expansion-item label="My QR code is not working, what can I do?" popup>
+              <q-expansion-item label="My QR code is not working, what can I do?" header-class="text-weight-bold text-subtitle1" popup>
                 <q-separator />
                 <q-card>
-                  <q-card-section>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-                    eveniet doloribus ullam aliquid.
+                  <q-card-section class="text-justify text-subtitle1">
+                    There are many reasons why a QR code is not working correctly. At first check your entered data. Sometimes there are little typos in your URL that break your QR code. Some QR codes (like vCard) contain a lot of data. Try reducing the data you entered for your QR code if possible. This can make it easier for QR code scanner apps to read your code. Try to remove the logo in your QR code and check if this helps. Also make sure that there is enough contrast between the background and foreground of the QR code. The foreground should always be darker than the background.
                   </q-card-section>
                 </q-card>
               </q-expansion-item>

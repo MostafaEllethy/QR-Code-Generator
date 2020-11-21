@@ -34,7 +34,7 @@
     }
     , watch: {
       qr(val) {
-        this.$emit('updateQR', val)
+        this.$emit('update-qr', val)
       }
     }
   }

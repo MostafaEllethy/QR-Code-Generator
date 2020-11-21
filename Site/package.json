@@ -12,21 +12,21 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.6.1",
-    "axios": "^0.19.2",
-    "jspdf": "^1.5.3",
-    "npm-check-updates": "^4.1.1",
+    "@quasar/extras": "^1.9.10",
+    "axios": "^0.21.0",
+    "jspdf": "^2.1.1",
+    "npm-check-updates": "^10.2.2",
     "qrcode": "^1.4.4",
-    "quasar": "^1.9.13",
-    "vue-gtag": "^1.6.2"
+    "quasar": "^1.14.5",
+    "vue-gtag": "^1.10.0"
   },
   "devDependencies": {
-    "@quasar/app": "^1.6.1",
+    "@quasar/app": "^2.1.8",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-loader": "^4.0.0",
-    "eslint-plugin-vue": "^6.2.2"
+    "eslint-plugin-vue": "^7.1.0"
   },
   "engines": {
     "node": ">= 10.18.1",

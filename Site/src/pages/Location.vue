@@ -76,11 +76,11 @@
     , watch: {
       latitude() {
         marker.setPosition({ lat: this.latitude, lng: this.longitude })
-        this.$emit('updateQR', 'geo:' + this.latitude + ',' + this.longitude)
+        this.$emit('update-qr', 'geo:' + this.latitude + ',' + this.longitude)
       }
       , longitude() {
         marker.setPosition({ lat: this.latitude, lng: this.longitude })
-        this.$emit('updateQR', 'geo:' + this.latitude + ',' + this.longitude)
+        this.$emit('update-qr', 'geo:' + this.latitude + ',' + this.longitude)
       }
     }
   }

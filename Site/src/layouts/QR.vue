@@ -3,7 +3,7 @@
     <q-card-section>
       <div class="row">
         <div class="col-xs-12 col-sm-7 col-md-8" v-bind:class="{'q-pr-md': screenSize >= 2, 'q-pb-md': screenSize === 1}">
-          <router-view @updateQR="updateQR" :screenSize="screenSize" />
+          <router-view @update-qr="updateQR" :screenSize="screenSize" />
         </div>
         <div id="CanvasArea" class="col-xs-12 col-sm-5 col-md-4" v-bind:class="{'border q-pl-md': $q.screen.name !== 'xs'}">
           <QR ref="QR" :screenSize="screenSize"></QR>
@@ -96,7 +96,7 @@
     , methods: {
       updateQR(val) {
         if (val !== '') {
-          module.$refs.QR.updateQR(val);
+          this.$refs.QR.updateQR(val);
         }
       }
     }

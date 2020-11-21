@@ -16,9 +16,9 @@
       url(val) {
         let string = val.toLowerCase();
         if (string.startsWith("http://") || string.startsWith("https://")) {
-          this.$emit('updateQR', string)
+          this.$emit('update-qr', string)
         } else {
-          this.$emit('updateQR', 'http://' + string)
+          this.$emit('update-qr', 'http://' + string)
         }
       }
     }

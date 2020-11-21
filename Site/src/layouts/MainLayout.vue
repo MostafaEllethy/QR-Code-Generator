@@ -38,7 +38,7 @@
       }
     }
     , beforeRouteEnter(to, from, next) {
-      axios.get(window.location.origin + '/statics/config.json').then(function (response) {
+      axios.get(window.location.origin + '/config.json').then(function (response) {
         next(() => {
           window.apiUrl = response.data.apiRoot;
           axios.get(window.apiUrl + '/api/contacts')

@@ -17,13 +17,13 @@ const routes = [
             name: "URL",
             meta: { header: "URL" },
             path: "/url",
-            component: () => import("../pages/URL.vue")
+            component: () => import("../pages/Url.vue")
           },
           {
             name: "WiFi",
             meta: { header: "WiFi" },
             path: "/wifi",
-            component: () => import("../pages/WiFi.vue")
+            component: () => import("../pages/Wifi.vue")
           },
           {
             name: "Phone",

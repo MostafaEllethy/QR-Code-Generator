@@ -9,3 +9,4 @@ RUN quasar build
 
 FROM nginx
 COPY --from=build /app/dist/spa /usr/share/nginx/html
+COPY --from=build /app/container-resources/default.conf /etc/nginx/conf.d/

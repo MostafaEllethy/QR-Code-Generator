@@ -3,7 +3,7 @@
 
     <div id="AppTitle" style="margin: 1.5rem auto;">
       <h1 class="text-h2 text-white no-margin">QR<span class="text-weight-bolder">CODE</span> Generator</h1>
-      <q-btn round push color="transparent" icon="menu" id="IconMenu">
+      <q-btn round push color="transparent" icon="menu" id="IconMenu" aria-label="Menu toggler">
         <q-menu anchor="bottom middle" self="top middle" :offset=[0,5] content-class="text-center text-weight-bold text-cyan-9">
           <q-item clickable :to="($route.meta.header == null) ? {name: 'Text', hash: '#About'} : {hash: '#About'}">
             <q-item-section>About</q-item-section>

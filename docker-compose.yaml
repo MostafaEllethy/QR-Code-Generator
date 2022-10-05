@@ -1,0 +1,11 @@
+version: "3"
+services:
+  qr-code-generator:
+    container_name: qr-code-generator
+    build: .
+    network_mode: bridge
+    ports:
+      - "80:80"
+    environment:
+      - VIRTUAL_HOST=qr-code-generator.mostafaellethy.com
+      - LETSENCRYPT_HOST=qr-code-generator.mostafaellethy.com

@@ -21,7 +21,7 @@
     </div>
     <div class="row q-py-xl" id="FAQ">
       <div class="col-12">
-        <h2 style="color: #5c5e70;" class="text-h5 text-center text-weight-bolder q-pb-xl no-margin"><img src="~assets/faq.png" width="65" style="vertical-align:middle;" v-if="$q.screen.name !== 'xs'" /> Frequently Asked Questions</h2>
+        <h2 style="color: #5c5e70;" class="text-h5 text-center text-weight-bolder q-pb-xl no-margin"><img alt="FAQ" src="~assets/faq.png" width="65" style="vertical-align:middle;" v-if="$q.screen.name !== 'xs'" /> Frequently Asked Questions</h2>
         <div class="row q-col-gutter-sm q-px-md">
           <div class="col-xs-12 col-sm-6">
             <q-list>

@@ -1,13 +1,9 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-import routes from './routes'
+import routes from "./routes";
 
-import VueGtag from "vue-gtag";
-
-
-
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 /*
  * If not building with SSR mode, you can
@@ -18,13 +14,13 @@ Vue.use(VueRouter)
  * with the Router instance.
  */
 
-export default function (/* { store, ssrContext } */) {
+export default function(/* { store, ssrContext } */) {
   const Router = new VueRouter({
     scrollBehavior: (to, from, savedPosition) => {
       if (to.hash) {
-        return { selector: to.hash }
+        return { selector: to.hash };
       } else {
-        return { x: 0, y: 0 }
+        return { x: 0, y: 0 };
       }
     },
     routes,
@@ -34,9 +30,6 @@ export default function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> publicPath
     mode: process.env.VUE_ROUTER_MODE,
     base: process.env.VUE_ROUTER_BASE
-  })
-  Vue.use(VueGtag, {
-    config: { id: "UA-162080991-1" }
-  }, Router);
-  return Router
+  });
+  return Router;
 }

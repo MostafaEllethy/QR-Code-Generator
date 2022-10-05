@@ -5,7 +5,8 @@
         <div class="q-pa-lg">
           <img src="~assets/contact.png" width="175" />
           <p class="text-body1 q-pt-sm">
-            If you have any questions or just want to get in touch, use the form below, We look forward to hearing from you!
+            If you have any questions or just want to get in touch, use the form below, We look forward to hearing from
+            you!
           </p>
         </div>
       </div>
@@ -28,10 +29,12 @@
                 <q-input filled v-model="contact.email" label="Email" :readonly="sending" />
               </div>
               <div class="col-12">
-                <q-input filled v-model="contact.message" label="Message" type="textarea" rows="7" required :readonly="sending" />
+                <q-input filled v-model="contact.message" label="Message" type="textarea" rows="7" required
+                  :readonly="sending" />
               </div>
               <div class="col-sm-5 col-md-3">
-                <q-btn type="submit" color="positive" push label="Send" icon-right="send" class="full-width q-py-xs" :loading="sending" />
+                <q-btn type="submit" color="positive" push label="Send" icon-right="send" class="full-width q-py-xs"
+                  :loading="sending" />
               </div>
             </template>
           </div>
@@ -43,40 +46,42 @@
 </template>
 
 <script>
-  class Contact {
-    name = ""
-    email = ""
-    message = ""
-  }
+import { setTimeout } from 'timers';
 
-  let module = null;
+class Contact {
+  name = ""
+  email = ""
+  message = ""
+}
 
-  export default {
-    data() {
-      return {
-        contact: {}
-        , sending: false
-        , sent: false
-      }
-    }
-    , created() {
-      module = this;
-      this.contact = new Contact()
-    }
-    , methods: {
-      submitForm() {
-        this.sending = true;
-        module.$axios.post(window.apiUrl + '/api/Contacts', this.contact).then(() => {
-          this.sending = false;
-          this.sent = true;
-        })
-      }
+let module = null;
+
+export default {
+  data() {
+    return {
+      contact: {}
+      , sending: false
+      , sent: false
     }
   }
+  , created() {
+    module = this;
+    this.contact = new Contact()
+  }
+  , methods: {
+    submitForm() {
+      this.sending = true;
+      setTimeout(() => {
+        this.sending = false;
+        this.sent = true;
+      }, 1000)
+    }
+  }
+}
 </script>
 
 <style scoped>
-  h1 {
-    color: #1A2980;
-  }
+h1 {
+  color: #1A2980;
+}
 </style>

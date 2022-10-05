@@ -1,24 +1,20 @@
 {
   "name": "qr-code-generator",
   "version": "0.0.1",
-  "description": "QR Code Generator for URL, Wifi and more. FREE Online QR Code Generator for Everyone No sign-up required (commercial and print usage allowed).",
+  "description": "QR Code Generator is a Web App that allows you to generate QR codes in no time. It supports Text, URL, WiFi, vCard, Phone, SMS, Location, Email, and Event.",
   "productName": "QR Code Generator",
   "cordovaId": "",
   "capacitorId": "",
-  "author": "admin@qr-code-generator.info",
-  "private": true,
+  "author": "mostafa.ellethy93@gmail.com",
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@quasar/extras": "^1.9.10",
-    "axios": "^0.21.0",
     "jspdf": "^2.1.1",
-    "npm-check-updates": "^10.2.2",
     "qrcode": "^1.4.4",
-    "quasar": "^1.14.5",
-    "vue-gtag": "^1.10.0"
+    "quasar": "^1.14.5"
   },
   "devDependencies": {
     "@quasar/app": "^2.1.8",

@@ -1,12 +1,22 @@
 # QR Code Generator (qr-code-generator)
 
-QR Code Generator is a Web App that allows you to generate QR codes in no time. It supports Text, URL, WiFi, vCard, Phone, SMS, Location, Email, and Event.
+QR Code Generator is a Web App that allows you to generate QR codes in no time. It supports Text, URL, WiFi, vCard, Phone, SMS, Location, Email, and Event. Powered by the Vue.js framework [Quasar](https://quasar.dev/).
+
+&nbsp;
+
+## Live Demo
+
+[View Demo](https://qr-code-generator.mostafaellethy.com/)
+
+&nbsp;
 
 ## Install the dependencies
 
 ```bash
 npm install
 ```
+
+&nbsp;
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
 
